@@ -1,0 +1,71 @@
+--- 
+- 
+  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  cpu: 1
+  ip: "172.17.8.101"
+  name: consul-node-101
+  forward_ports:
+      - { guest: 8500, host: 9500 }
+      - { guest: 8080, host: 9080 }
+  ram: 2048
+  shell_commands: 
+      - { shell: yum install -y git wget curl device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld }
+      - { shell: /opt/puppet/bin/gem install r10k }
+      - { shell: 'echo -e "172.17.8.101 consul-node-101">/etc/hosts && echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc' } 
+      - { shell: cp /home/vagrant/consul-node-101/Puppetfile /tmp && cd /tmp && /opt/puppet/bin/r10k puppetfile install -v }
+      - { shell: cp /home/vagrant/consul-node-101/modules/* -R /tmp/modules }
+
+- 
+  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  cpu: 1
+  ip: "172.17.8.102"
+  name: consul-node-102
+  forward_ports:
+      - { guest: 8500, host: 9501 }
+      - { guest: 80, host: 5080 }
+  ram: 2048
+  shell_commands: 
+      - { shell: yum install -y git wget curl device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld  }
+      - { shell: /opt/puppet/bin/gem install r10k }
+      - { shell: 'echo -e "172.17.8.101 consul-node-101\n172.17.8.102 consul-node-102">/etc/hosts && echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc' } 
+      - { shell: cp /home/vagrant/consul-node-102/Puppetfile /tmp && cd /tmp && /opt/puppet/bin/r10k puppetfile install -v }
+      - { shell: cp /home/vagrant/consul-node-102/modules/* -R /tmp/modules }
+     
+- 
+  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  cpu: 1
+  ip: "172.17.8.103"
+  name: consul-node-103
+  forward_ports:
+      - { guest: 8500, host: 9503 }
+      - { guest: 15672, host: 9083 }
+  ram: 2048
+  shell_commands: 
+      - { shell: yum install -y git wget curl device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld  }
+      - { shell: /opt/puppet/bin/gem install r10k }
+      - { shell: 'echo -e "172.17.8.101 consul-node-101\n172.17.8.103 consul-node-103">/etc/hosts && echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc' } 
+      - { shell: cp /home/vagrant/consul-node-103/Puppetfile /tmp && cd /tmp && /opt/puppet/bin/r10k puppetfile install -v }
+      - { shell: cp /home/vagrant/consul-node-103/modules/* -R /tmp/modules }
+   
+  
+- 
+  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  cpu: 1
+  ip: "172.17.8.104"
+  name: consul-node-104
+  forward_ports:
+      - { guest: 8500, host: 9504 }
+      - { guest: 8080, host: 9081 }
+  ram: 2048
+  shell_commands: 
+      - { shell: yum install -y git wget curl device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld  }
+      - { shell: /opt/puppet/bin/gem install r10k }
+      - { shell: 'echo -e "172.17.8.101 consul-node-101\n172.17.8.104 consul-node-104">/etc/hosts && echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc' } 
+      - { shell: cp /home/vagrant/consul-node-104/Puppetfile /tmp && cd /tmp && /opt/puppet/bin/r10k puppetfile install -v }
+      - { shell: cp /home/vagrant/consul-node-104/modules/* -R /tmp/modules }
+
+   
+
+
+
+

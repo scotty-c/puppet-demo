@@ -1,0 +1,7 @@
+:backends:
+  - yaml
+:hierarchy:
+  - global
+
+:yaml:
+  :datadir: /vagrant/hieradata

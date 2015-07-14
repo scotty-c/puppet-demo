@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.3.2)
+    vagrant-wrapper (2.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake
+  vagrant-wrapper

@@ -1,0 +1,21 @@
+name    'scottyc-config'
+version '0.1.0'
+
+author 'scottyc'
+summary 'config module'
+description 'config module'
+project_page 'https://stash.healthdirect.org.au/projects/puppet/repos/config'
+
+# Add dependencies here, if any (NB: Must be in the form 'author/modulename')
+
+dependency 'puppetlabs/stdlib'
+dependency 'puppetlabs/vcsrepo'
+dependency 'nanliu/staging'
+dependency 'KyleAnderson/consul'
+dependency 'scottyc/golang'
+dependency 'scottyc/docker_swarm'
+dependency 'garethr/docker'
+dependency 'scottc/config'
+dependency 'stankevich/python'
+dependency 'stahnma/epel'
+dependency 'tayzlor/weave'

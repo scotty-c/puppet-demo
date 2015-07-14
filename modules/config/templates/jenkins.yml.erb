@@ -1,0 +1,10 @@
+jenkins:  
+  image: jenkins
+  hostname: jenkins
+  ports:
+  - "8080:8080"  
+registrator:
+  image: gliderlabs/registrator
+  volumes: 
+   - "/var/run/docker.sock:/tmp/docker.sock"
+  command: consul://<%= @consul_ip %>:8500 
