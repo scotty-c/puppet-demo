@@ -1,4 +1,4 @@
-# Puppet Meetup Demo
+# PuppetConf Demo
 ```
 Prerequisites:
 - Vagrant
