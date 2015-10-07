@@ -34,3 +34,19 @@ Rabitmq
 ````
 127.0.0.1:9083
 ````
+
+# Commands
+
+Here are a few interesting commands to look at what is happening inside the swarm cluster. ````vagrant ssh into consul-node-104````
+
+Info
+````
+docker -H tcp://172.17.8.104:2376 info
+`````  
+
+Docker ps
+```` 
+docker -H tcp://172.17.8.104:2376 ps
+````
+
+On any of the other host run ````weave status```` to see the container network
