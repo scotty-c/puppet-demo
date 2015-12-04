@@ -2,9 +2,16 @@ class config::swarm {
 
   class { 'docker_swarm': 
   require => Class['config::consul_config']
-  } 
+  }
 
-  if $hostname =~ /^*104*$/ {
+  docker_network { 'swarm-private':
+  ensure => present,
+  create => true, 
+  driver => 'overlay',
+  require => Class['config::consul_config']
+  }
+
+  if $hostname =~ /^swarm-master*/ {
   
   swarm_cluster {'cluster 1':
     ensure       => present,
@@ -12,6 +19,7 @@ class config::swarm {
     cluster_type => 'manage',
     port         => '8500',
     address      => '172.17.8.101',
+    advertise    => $ipaddress_enp0s8,
     path         => 'swarm',
     }  
   }

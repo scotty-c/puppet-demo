@@ -1,3 +1,3 @@
 # config
 
-Demo Puppet Meetup
+Demo PuppeConf 2015
