@@ -14,7 +14,7 @@ Puppet::Type.type(:swarm_cluster).provide(:ruby) do
   end
 
   def swarm_conf
-    cluster = (resource[:cluster_type]) 
+    cluster = resource[:cluster_type] 
     backend = (resource[:backend])
     address = (resource[:address])
     port = (resource[:port])  

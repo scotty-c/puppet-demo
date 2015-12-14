@@ -23,7 +23,7 @@ consul
 ````
 
 # Commands
-Here are a few interesting commands to look at what is happening inside the swarm cluster. ````vagrant ssh into swarm-master-01````
+Here are a few interesting commands to look at what is happening inside the swarm cluster. ````vagrant ssh into swarm-master-01```` or ````vagrant ssh into swarm-master-02````
 
 
 Info
@@ -35,3 +35,6 @@ Docker ps
 ```` 
 docker -H tcp://172.17.8.114:2376 ps
 ````
+
+On any of the other host run ````docker network ls```` to see the container networks
+

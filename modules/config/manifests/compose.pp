@@ -8,15 +8,9 @@ if $hostname =~ /^swarm-master*/ {
 
 else {
 
- $erb = $::hostname ? {
-  /.*101$/ => 'jenkins.yml',
-  /.*102$/ => 'nginx.yml',
-  /.*103$/ => 'rabbitmq.yml',
-  }
-
 file { '/root/docker-compose.yml':
   ensure  => file,
-  content => template("config/$erb.erb"), 
+  content => template("config/registrator.yml.erb"), 
   } ->
 
 docker_compose {'swarm app':
