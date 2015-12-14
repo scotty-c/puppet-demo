@@ -1,10 +1,11 @@
-rabbitmq:  
-  image: rabbitmq:3-management
-  hostname: rabbitmq
-  ports:
-  - "15672:15672"  
+#rabbitmq:  
+#  image: rabbitmq:3-management
+#  hostname: rabbitmq
+#  ports:
+#  - "15672:15672"  
 registrator:
   image: gliderlabs/registrator
+  net: "host"
   volumes: 
    - "/var/run/docker.sock:/tmp/docker.sock"
   command: consul://<%= @consul_ip %>:8500 

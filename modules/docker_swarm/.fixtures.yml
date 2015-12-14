@@ -1,0 +1,9 @@
+fixtures:
+    symlinks:
+        docker_swarm: "#{source_dir}"
+    forge_modules:
+        vcsrepo: puppetlabs/vcsrepo
+        stdlib: puppetlabs/stdlib
+        golang: scottyc/golang
+        docker: garethr/docker
+

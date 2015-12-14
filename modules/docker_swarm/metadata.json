@@ -1,0 +1,27 @@
+{
+  "name": "scottyc-docker_swarm",
+  "version": "0.0.4",
+  "author": "scottyc",
+  "license": "Apache-2.0",
+  "summary": "A module for Docker Swarm",
+  "source": "https://github.com/scotty-c/puppet-docker_swarm",
+  "project_page": "https://github.com/scotty-c/puppet-docker_swarm",
+  "issues_url": "https://github.com/scotty-c/puppet-docker_swarm",
+  "tags": ["docker", "swarm"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "6.0", "7.0" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "12.04", "14.04" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/vcsrepo", "version_requirement": ">= 1.2.0" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.1.0" },
+    { "name": "scottyc/golang", "version_requirement": ">= 1.0.0" },
+    { "name": "garethr/docker", "version_requirement": ">= 4.0.0" }
+  ]
+}

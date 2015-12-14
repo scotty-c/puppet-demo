@@ -1,10 +1,11 @@
-nginx:  
-  image: nginx
-  hostname: nginx
-  ports:
-  - "80:80"  
+#nginx:  
+#  image: nginx
+#  hostname: nginx
+#  ports:
+#  - "80:80"  
 registrator:
   image: gliderlabs/registrator
+  net: "host"
   volumes: 
    - "/var/run/docker.sock:/tmp/docker.sock"
   command: consul://<%= @consul_ip %>:8500 

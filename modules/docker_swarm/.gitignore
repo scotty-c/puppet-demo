@@ -1,0 +1,4 @@
+*.sw[op]
+/junit.xml
+/spec/fixtures
+/pkg

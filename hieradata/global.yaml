@@ -1,3 +1,7 @@
-golang::version: go1.4.2
+docker_swarm::backend: consul
+docker_swarm::backend_ip: 172.17.8.101
+docker_swarm::backend_port: 8500
+docker_swarm::advertise_int: enp0s8 
 consul::version: 0.5.2
+
 

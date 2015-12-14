@@ -16,7 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
   # Iterate through entries in YAML file
 servers.each do |servers|
-    
+  
+  config.vbguest.auto_update = false  
   config.vm.define servers["name"] do |srv|
     
     srv.vm.hostname = servers["name"]
