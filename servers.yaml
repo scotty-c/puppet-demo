@@ -7,6 +7,7 @@
   forward_ports:
       - { guest: 8500, host: 9501 }
       - { guest: 80, host: 8001 }
+      - { guest: 443, host: 8441 }
       - { guest: 8080, host: 8081 }
   ram: 2048
   shell_commands: 
@@ -25,6 +26,7 @@
   forward_ports:
       - { guest: 8500, host: 9502 }
       - { guest: 80, host: 8002 }
+      - { guest: 443, host: 8442 }
       - { guest: 8080, host: 8082 }
   ram: 2048
   shell_commands: 
@@ -43,6 +45,7 @@
   forward_ports:
       - { guest: 8500, host: 9503 }
       - { guest: 80, host: 8003 }
+      - { guest: 443, host: 8443 }
       - { guest: 8080, host: 8083 }
   ram: 2048
   shell_commands: 

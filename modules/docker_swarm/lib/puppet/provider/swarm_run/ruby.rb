@@ -17,8 +17,7 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
     ports = (resource[:ports])
     ports_conf = Array.new
     if ports.respond_to?(:to_str)
-      a = ports_conf.push(ports)
-      a.unshift('-p')
+      a = ports.insert(0, '--publish=')
     else
       a = ports_conf + ports 
       a.each do |p|
