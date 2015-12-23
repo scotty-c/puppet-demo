@@ -17,4 +17,36 @@ Puppet::Type.newtype(:swarm_run) do
     newparam(:image) do
       desc "Docker image to pull"
     end
+    
+    newparam(:volume) do
+      desc "Bind mount a volume"
+    end
+    
+    newparam(:volume_driver) do
+      desc "Optional volume driver for the container"
+    end
+
+    newparam(:volumes_from) do
+      desc "Mount volumes from the specified container(s)"
+    end 
+
+    newparam(:network) do
+      desc "Set the Network for the container"
+    end
+
+    newparam(:log_driver) do
+      desc "Logging driver for container"
+    end
+    
+    newparam(:log_opt) do
+      desc "Log driver options"
+    end
+
+    newparam(:link) do
+      desc "Add link to another container"
+    end
+    
+    newparam(:label) do
+      desc "Set meta data on a container"
+    end
 end
