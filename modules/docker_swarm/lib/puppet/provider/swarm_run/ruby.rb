@@ -15,8 +15,10 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
 
   def port
     ports = (resource[:ports])
-    ports_conf = Array.new
-    if ports.respond_to?(:to_str)
+    ports_conf = Array.new 
+    if ports.nil?
+      a = " "
+    elsif ports.respond_to?(:to_str)
       a = ports.insert(0, '--publish=')
     else
       a = ports_conf + ports 
@@ -25,7 +27,7 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
       end
     end
   end
-
+  
   def docker_run  
    name = (resource[:name])
    image = (resource[:image])
@@ -58,7 +60,14 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
    if label.to_s.strip.length == 0 then run.delete("--label=")
     end             
    run.reject { |item| item.nil? || item == '' } 
-   end
+   str = ''
+   run.each do |m|
+     str << m + ' ' 
+    end
+   s = str.gsub('= ', '=')
+   t =  s.gsub(/\s+/, ' ')
+   t.rstrip.split(",")
+  end
   
   def exists?
     Puppet.info("checking if conatiner is running")
@@ -67,13 +76,14 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
    end
  
    def create
-     Puppet.info("running container on Swarm Cluster")
+     Puppet.info("running container on swarm cluster")
+     puts docker_run
      p = fork {docker *docker_run}
      Process.detach(p)
    end
 
    def destroy
-     Puppet.info("Stoping container")
+     Puppet.info("stoping container")
      %x(docker -H tcp://#{interface}:2376 rm -f #{resource[:name]} )
    end
  end

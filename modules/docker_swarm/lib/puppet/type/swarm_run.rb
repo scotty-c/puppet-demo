@@ -10,7 +10,7 @@ Puppet::Type.newtype(:swarm_run) do
       desc "Application name"  
     end
     
-    newparam(:ports) do
+    newparam(:ports) do 
       desc "Ports for guest and host. An example would look like 80:80"
     end
 
