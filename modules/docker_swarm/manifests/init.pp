@@ -32,7 +32,8 @@ class docker_swarm(
 
   if install_docker {
     class {'docker':
-      tcp_bind => $bind,
+      tcp_bind         => $bind,
+      socket_bind      => 'unix:///var/run/docker.sock -d',
       extra_parameters => "--cluster-store=${backend}://${backend_ip}:${backend_port} --cluster-advertise=${advertise_int}:2376"
       }
     
