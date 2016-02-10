@@ -16,12 +16,12 @@ class config::run_containers {
    require => Class['config::swarm'] 
    }  
   
-   # swarm_run {'redis':
-   # ensure  => present,
-   # image   => 'redis',
-   # ports   => '6379:6379',
-   # require => Class['config::swarm'] 
-   # }  
+   swarm_run {'redis':
+   ensure  => present,
+   image   => 'redis',
+   ports   => '6379:6379',
+   require => Class['config::swarm'] 
+   }  
 
   }
 }

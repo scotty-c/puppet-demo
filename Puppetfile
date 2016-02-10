@@ -9,11 +9,11 @@ forge 'http://forge.puppetlabs.com'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/vcsrepo'
 mod 'nanliu/staging'
-mod 'KyleAnderson/consul', '1.0.2' 
+mod 'KyleAnderson/consul'
 mod 'scottyc/docker_swarm'
-mod 'scottyc/golang'
+mod 'scottyc/golang', :git => "https://github.com/scotty-c/puppet-golang.git"
 mod 'garethr/docker', :git => "https://github.com/scotty-c/garethr-docker.git"
 mod 'stankevich/python'
 mod 'stahnma/epel'
-
+mod 'maestrodev/wget'
 
