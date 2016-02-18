@@ -14,7 +14,7 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
   end
 
   def docker_run 
-    ['-H', "tcp://#{interface}:2376", 'run', '-p', "#{resource[:ports]}", '-d', '--name', "#{resource[:name]}", "#{resource[:image]}"] 
+    ['-H', "tcp://#{interface}:2376", 'run', '--env=reschedule:on-node-failure', '-p', "#{resource[:ports]}", '-d', '--name', "#{resource[:name]}", "#{resource[:image]}"] 
   end
    
   def exists?

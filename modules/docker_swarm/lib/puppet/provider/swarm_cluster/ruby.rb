@@ -24,9 +24,9 @@ Puppet::Type.type(:swarm_cluster).provide(:ruby) do
       when cluster.match(/create/)
         [['create']]
       when cluster.match(/join/)
-        [['join', "--advertise=#{interface}:2375", "#{backend}://#{address}:#{port}/#{path}"]]
+        [['--experimental', 'join', "--advertise=#{interface}:2375", "#{backend}://#{address}:#{port}/#{path}"]]
       when cluster.match(/manage/)      
-        [['manage', '-H', "tcp://#{interface}:2376", "#{backend}://#{address}:#{port}/#{path}"], ['manage', '-H', ':4000', '--replication', '--advertise', "#{advertise}:4000", "#{backend}://#{address}:#{port}/#{path}"]] 
+        [['--experimental', 'manage', '-H', "tcp://#{interface}:2376", "#{backend}://#{address}:#{port}/#{path}"], ['--experimental', 'manage', '-H', ':4000', '--replication', '--advertise', "#{advertise}:4000", "#{backend}://#{address}:#{port}/#{path}"]] 
       end
    end
 

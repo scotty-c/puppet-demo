@@ -19,7 +19,7 @@ class config::swarm {
     cluster_type => 'manage',
     port         => '8500',
     address      => '172.17.8.101',
-    advertise    => $ipaddress_enp0s8,
+    advertise    => $::ipaddress_enp0s8,
     path         => 'swarm',
     }  
   }
@@ -31,8 +31,8 @@ class config::swarm {
    backend      => 'consul',
    cluster_type => 'join',
    port         => '8500',
-   address      =>  '172.17.8.101',
-   path         =>  'swarm'
+   address      => '172.17.8.101',
+   path         => 'swarm'
     } 
   }
 }  
