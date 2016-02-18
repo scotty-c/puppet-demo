@@ -8,7 +8,7 @@ class config::run_containers {
    ports   => ['8080:8080'],
    volume  => '/root/jenkins:/var/jenkins_home',
    require => Class['config::swarm'] 
-    }
+   }
   
    swarm_run {'nginx-1':
    ensure     => present,
@@ -24,6 +24,6 @@ class config::run_containers {
    image   => 'redis',
    network => 'swarm-private',
    require => Class['config::swarm'] 
-    }
+
   }
 }

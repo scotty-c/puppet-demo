@@ -9,7 +9,7 @@
       - { guest: 80, host: 8001 }
       - { guest: 443, host: 8441 }
       - { guest: 8080, host: 8081 }
-  ram: 2048
+  ram: 4096
   shell_commands: 
       - { shell: yum install -y git wget curl lvm2 unzip device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld }
       - { shell: 'echo -e "PEERDNS=no\nDNS1=127.0.0.1\nDNS2=8.8.8.8">>/etc/sysconfig/network-scripts/ifcfg-enp0s3 && systemctl restart network'}
@@ -28,9 +28,9 @@
       - { guest: 80, host: 8002 }
       - { guest: 443, host: 8442 }
       - { guest: 8080, host: 8082 }
-  ram: 2048
+  ram: 4096
   shell_commands: 
-      - { shell: yum install -y git wget curl lvm2 unzip device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld  }
+      - { shell: yum install -y git wget curl lvm2 device-mapper-libs unzip && systemctl stop firewalld && systemctl disable firewalld  }
       - { shell: 'echo -e "PEERDNS=no\nDNS1=127.0.0.1\nDNS2=8.8.8.8">>/etc/sysconfig/network-scripts/ifcfg-enp0s3 && systemctl restart network'}
       - { shell: /opt/puppet/bin/gem install r10k }
       - { shell: 'echo -e "172.17.8.101 swarm-101\n172.17.8.102 swarm-102">/etc/hosts && echo "PATH=\$PATH:/usr/local/bin" >> ~/.bashrc' } 
@@ -47,7 +47,7 @@
       - { guest: 80, host: 8003 }
       - { guest: 443, host: 8443 }
       - { guest: 8080, host: 8083 }
-  ram: 2048
+  ram: 4096
   shell_commands: 
       - { shell: yum install -y git wget curl lvm2 unzip device-mapper-libs && systemctl stop firewalld && systemctl disable firewalld  }
       - { shell: 'echo -e "PEERDNS=no\nDNS1=127.0.0.1\nDNS2=8.8.8.8">>/etc/sysconfig/network-scripts/ifcfg-enp0s3 && systemctl restart network'}

@@ -8,9 +8,9 @@ class config(
   
   include config::consul_config 
    
-  class {'config::swarm':}
-  class {'config::compose':}
-  class {'config::dns':}
+  class {'config::swarm':} ->
+  class {'config::compose':} ->
+  class {'config::dns':} ->
   class { 'config::run_containers':}
 }
 
