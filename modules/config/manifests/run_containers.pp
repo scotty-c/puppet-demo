@@ -24,6 +24,6 @@ class config::run_containers {
    image   => 'redis',
    network => 'swarm-private',
    require => Class['config::swarm'] 
-
+   }
   }
 }
