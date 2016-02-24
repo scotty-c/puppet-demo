@@ -39,7 +39,7 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
    log_opt = (resource[:log_opt])
    link = (resource[:link])
    label = (resource[:label])
-   run = ['-H', "tcp://#{interface}:2376", 'run', '-v', "#{volume}", '--volume-driver=', "#{volume_driver}",
+   run = ["--host=tcp://#{interface}:2376", 'run', '-v', "#{volume}", '--volume-driver=', "#{volume_driver}",
          '--volumes-from=', "#{volumes_from}", '--link', "#{link}", '--log-driver=', "#{log_driver}", '--log-opt=', "#{log_opt}", 
          '--label=', "#{label}", '--net=', "#{network}", port, '-d', '--name', "#{name}", "#{image}"] 
 
@@ -64,9 +64,9 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
    run.each do |m|
      str << m + ' ' 
     end
-   s = str.gsub('= ', '=')
-   t =  s.gsub(/\s+/, ' ')
-   t.rstrip.split(",")
+    s = str.gsub('= ', '=')
+    t =  s.gsub(/\s+/, ' ')
+    t.rstrip.split(",")
   end
   
   def exists?
@@ -77,9 +77,8 @@ Puppet::Type.type(:swarm_run).provide(:ruby) do
  
    def create
      Puppet.info("running container on swarm cluster")
-     puts docker_run
-     p = fork {docker *docker_run}
-     Process.detach(p)
+      p = fork {docker *docker_run}
+      Process.detach(p)
    end
 
    def destroy
