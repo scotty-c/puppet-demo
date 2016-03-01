@@ -1,6 +1,6 @@
 --- 
 - 
-  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  box: scottyc/centos-7-puppet-kernel-4-4
   cpu: 1
   ip: "172.17.8.101"
   name: swarm-101
@@ -19,7 +19,7 @@
       - { shell: cp /home/vagrant/swarm-101/modules/* -R /tmp/modules }
 
 - 
-  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  box: scottyc/centos-7-puppet-kernel-4-4 
   cpu: 1
   ip: "172.17.8.102"
   name: swarm-102
@@ -38,7 +38,7 @@
       - { shell: cp /home/vagrant/swarm-102/modules/* -R /tmp/modules }
      
 - 
-  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  box: scottyc/centos-7-puppet-kernel-4-4 
   cpu: 1
   ip: "172.17.8.103"
   name: swarm-103
@@ -58,7 +58,7 @@
    
   
 - 
-  box: puppetlabs/centos-7.0-64-puppet-enterprise 
+  box: scottyc/centos-7-puppet-kernel-4-4 
   cpu: 1
   ip: "172.17.8.114"
   name: swarm-master-01
