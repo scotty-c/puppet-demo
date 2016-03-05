@@ -10,8 +10,16 @@ Puppet::Type.newtype(:swarm_run) do
       desc "Application name"  
     end
     
-    newparam(:ports) do 
+    newproperty(:ports, :array_matching => :all) do 
       desc "Ports for guest and host. An example would look like 80:80"
+      defaultto '0'
+      def insync?(is)
+        if is.is_a?(Array) and @should.is_a?(Array)
+           is.sort == @should.sort
+       else
+          is == @should
+          end
+      end
     end
 
     newparam(:image) do
