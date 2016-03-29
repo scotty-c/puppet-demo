@@ -1,6 +1,6 @@
+docker_swarm::swarm_version: v1.2.0-rc1
 docker_swarm::backend: consul
 docker_swarm::backend_ip: 172.17.8.101
 docker_swarm::backend_port: 8500
 docker_swarm::advertise_int: enp0s8 
 consul::version: 0.6.3
-

@@ -1,6 +1,6 @@
 class config::compose {
   
-if $hostname =~ /^swarm-master*/ {
+if $hostname =~ /^master*/ {
  
  notice ["This server is the Swarm Manager."]
 

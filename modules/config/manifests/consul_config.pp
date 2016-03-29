@@ -35,7 +35,7 @@ else {
     }
   } 
 
-  ::consul::service { 'docker-service':
+  consul::service { 'docker-service':
   checks  => [
     {
     script   => 'service docker status',
@@ -45,4 +45,4 @@ else {
   ],
   address => $::ipaddress_enp0s8,
   }
-}
+ }     

@@ -21,8 +21,7 @@ class config::dns {
     group   => 'root',
     require => Package['bind'],
   } ~>
-
-
+  
   service { 'named':
     ensure  => running,
     enable  => true,

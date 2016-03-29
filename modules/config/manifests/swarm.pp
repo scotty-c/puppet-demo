@@ -11,7 +11,7 @@ class config::swarm {
   require => Class['config::consul_config']
   }
 
-  if $hostname =~ /^swarm-master*/ {
+  if $hostname =~ /^master*/ {
   
   swarm_cluster {'cluster 1':
     ensure       => present,
