@@ -1,17 +1,6 @@
 class config::monitoring {
 
 if $hostname =~ /^master*/ {
-  # consul::check { 'kibana':
-  #   ensure   =>  present, 
-  #   tcp      => 'kibana.service.consul:80', 
-  #   interval => '10s',
-  #   }
-
-  # consul::check { 'logstash-5000':
-  #   ensure   =>  present, 
-  #   tcp      => 'logstash-5000.service.consul:5000', 
-  #   interval => '10s',
-  #   }  
   
   consul::service { 'swarm-master-01':
     checks  => [
