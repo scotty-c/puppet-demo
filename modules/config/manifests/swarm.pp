@@ -11,7 +11,7 @@ class config::swarm {
   require => Class['config::consul_config']
   }
 
-  if $hostname =~ /^master*/ {
+  if $hostname =~ /^swarm-master*/ {
   
   swarm_cluster {'cluster 1':
     ensure       => present,
@@ -33,6 +33,6 @@ class config::swarm {
    port         => '8500',
    address      => '172.17.8.101',
    path         => 'swarm'
-    } 
+   } 
   }
 }  

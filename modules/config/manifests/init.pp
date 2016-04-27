@@ -12,13 +12,8 @@ class config(
   contain config::compose
   contain config::dns
   contain config::run_containers
-  contain config::monitoring
 
-  Class['config::swarm'] -> 
-  Class['config::compose'] -> 
-  Class['config::dns'] -> 
-  Class['config::run_containers'] -> 
-  Class['config::monitoring']
+  Class['config::swarm'] -> Class['config::compose'] -> Class['config::dns'] -> Class['config::run_containers']
 }
 
 

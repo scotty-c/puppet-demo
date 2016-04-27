@@ -1,6 +1,6 @@
 class config::run_containers {
 
- if $hostname =~ /master-02/ {
+ if $hostname =~ /swarm-master-02/ {
   
   swarm_run {'logstash':
     ensure     => present,
