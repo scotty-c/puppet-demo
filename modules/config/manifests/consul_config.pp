@@ -15,8 +15,8 @@ if $hostname =~ /^*101*$/ {
       'server'           => true
        }
      }
-  }  
- 
+  }
+
 else {
 
  class { 'consul':
@@ -33,7 +33,7 @@ else {
       'server'         => false
       }
     }
-  } 
+  }
 
   consul::service { 'docker-service':
   checks  => [
@@ -46,20 +46,20 @@ else {
   address => $::ipaddress_enp0s8,
   }
 
-  
+
 # if $hostname =~ /^swarm-master*/ {
 #   consul::check { 'kibana':
-#     ensure   =>  present, 
-#     tcp      => 'kibana.service.consul:80', 
+#     ensure   =>  present,
+#     tcp      => 'kibana.service.consul:80',
 #     interval => '10s',
 #     }
 
 #   consul::check { 'logstash-5000':
-#     ensure   =>  present, 
-#     tcp      => 'logstash-5000.service.consul:5000', 
+#     ensure   =>  present,
+#     tcp      => 'logstash-5000.service.consul:5000',
 #     interval => '10s',
-#     }  
-  
+#     }
+
 #   consul::service { 'swarm-master-01':
 #     checks  => [
 #       {
@@ -69,8 +69,8 @@ else {
 #       }
 #     ],
 #     address => $::ipaddress_enp0s8,
-#      }  
-   
+#      }
+
 #   consul::service { 'swarm-master-02':
 #     checks  => [
 #       {
@@ -80,6 +80,6 @@ else {
 #       }
 #     ],
 #     address => $::ipaddress_enp0s8,
-#      }  
+#      }
 #    }
- }     
+ }
